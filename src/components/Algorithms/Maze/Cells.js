@@ -1,17 +1,15 @@
 import * as React                                            from 'react';
 import {useEffect, useRef, useMemo, useState, createContext} from 'react';
-import {a}                                             from '@react-spring/three';
-import {useGenerateMazeHook, useSolver, useLayoutHook} from './CellFunctions';
-import {directions}                                    from './Directions';
-import {_FindCell}                                     from './Tools';
-import board                                           from './Board';
-import {BinaryTreeCreation}                            from './Generation/BinaryTreeCreation';
+import {useGenerateMazeHook, useSolver, useLayoutHook}       from './CellFunctions';
+import {directions}                                          from './Directions';
+import {_FindCell}                                           from './Tools';
+import {BinaryTreeCreation}                                  from './Generation/BinaryTreeCreation';
 import {
   FLOOR_TYPE, FLOOR_COLOR, WALL_TYPE, WALL_COLOR,
   getColor, GOAL_TYPE, START_TYPE, SELECTED_COLOR,
   BURN_COLOR, PATH_TYPE, PATH_COLOR,
-}                                                      from '../../../Utility/Colors';
-import * as THREE                                      from 'three';
+}                                                            from '../../../Utility/Colors';
+import * as THREE                                            from 'three';
 
 
 
@@ -138,14 +136,14 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
    * Solving the maze according to the selected algorithm.
    * Also, it updates the board state according to solver's progress.
    */
-  const {solvingProgress} = useSolver({
-    board,
-    algorithm,
-    solving,
-    onFrame: () => {
-      update({mesh: meshRef.current, board, colorAttrib, colorArray});
-    },
-  }, [solving === true]);
+  /*   const {solvingProgress} = useSolver({
+   board,
+   algorithm,
+   solving,
+   onFrame: () => {
+   update({mesh: meshRef.current, board, colorAttrib, colorArray});
+   },
+   }, [solving === true]); */
 
 
   const {getClickTarget, setDownPointerCoord} = useMouseClickHook({
@@ -198,7 +196,7 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
           {/* <BufferPoints numPoints={numPoints} /> */}
           {/* <BufferPoints numPoints = {numPoints}/> */}
           {selectedPoint && (
-              <a.group
+              <group
                   position = {[
                     selectedPoint.x,
                     selectedPoint.y,
@@ -220,7 +218,7 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
                     intensity = {20}
                     color = {BURN_COLOR}
                 />
-              </a.group>
+              </group>
           )}
         </instancedMesh>
       </group>
@@ -230,6 +228,5 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
 
 
 export default Cells;
-
 
 

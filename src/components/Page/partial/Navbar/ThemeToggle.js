@@ -1,4 +1,6 @@
-import { Component } from "react";
+import React from 'react';
+
+import { Component }  from 'react';
 import { ReactComponent as Moon } from "../../../../img/moon.svg";
 import { ReactComponent as Sun } from "../../../../img/sun.svg";
 

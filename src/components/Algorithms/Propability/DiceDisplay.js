@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
-import Navigation                           from '../../Page/partial/Navbar/Navigation';
-import {Chest}                              from './Chest';
+import Navigation                from '../../Page/partial/Navbar/Navigation';
+import {Chest}                   from './Chest';
 import './diceDisplay.css';
 
 
@@ -103,41 +103,6 @@ export default function DiceDisplay() {
             <button className = "reset-button" onClick = {handleResetCamera}>
               View Reset
             </button>
-          </div>
-
-          <div>
-            <h1>Dice</h1>
-            <div>
-              <label>Dice Count:</label>
-              <input type = "number" value = {diceCount} onChange = {handleDiceCountChange}/>
-            </div>
-            <div>
-              <label>Dice Size:</label>
-              <input type = "number" value = {diceSize} onChange = {handleDiceSizeChange}/>
-            </div>
-            <div>
-              <label>Dice Color:</label>
-              <input type = "text" value = {diceColor} onChange = {handleDiceColorChange}/>
-            </div>
-            <div>
-              <label>Dice Shape:</label>
-              <input type = "text" value = {diceShape} onChange = {handleDiceShapeChange}/>
-            </div>
-            <div>
-              <button onClick = {addDice}>Add Dice</button>
-              <button onClick = {removeDice}>Remove Dice</button>
-              <button onClick = {rollDice}>Roll Dice</button>
-              <div>
-                {dice.map((dice, index) => {
-                      return (
-                          <div key = {index}>
-                            <p>{dice}</p>
-                          </div>
-                      );
-                    },
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </>

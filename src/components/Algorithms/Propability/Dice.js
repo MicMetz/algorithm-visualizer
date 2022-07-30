@@ -1,6 +1,5 @@
 import * as React                                            from 'react';
 import {useEffect, useRef, useMemo, useState, createContext} from 'react';
-import {a}                                                   from '@react-spring/three';
 import {
   FLOOR_TYPE, FLOOR_COLOR, WALL_TYPE, WALL_COLOR,
   getColor, GOAL_TYPE, START_TYPE, SELECTED_COLOR,

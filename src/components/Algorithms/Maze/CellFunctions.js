@@ -1,7 +1,6 @@
 import * as React                                                              from 'react';
 import {useEffect, useRef, useState, useMemo}                                  from 'react';
-import {useSpring}                                                             from 'react-spring';
-import board                                                                   from './Board';
+// import {useSpring}                                                             from 'react-spring';
 import {_BoardReset}                                                           from './Tools';
 import {PATH_TYPE, DEFAULT_TYPE, FLOOR_TYPE, WALL_TYPE, START_TYPE, GOAL_TYPE} from '../../../Utility/Colors';
 import {BinaryTreeCreation}                                                    from './Generation/BinaryTreeCreation';
@@ -75,7 +74,7 @@ export function useSolver({board, solving, algorithm, onFrame}) {
 
   const [solved, setSolved] = useState(false);
   const prevSelection       = useRef(algorithm);
-  const animation           = useSpring({
+/*   const animation           = useSpring({
         solvingProgress: 1,
         from           : {solvingProgress: 0},
         reset          : algorithm !== prevSelection.current,
@@ -83,10 +82,10 @@ export function useSolver({board, solving, algorithm, onFrame}) {
           onFrame(solvingProgress);
         },
       },
-  );
+  ); */
   prevSelection.current     = algorithm;
 
-  return animation;
+  // return animation;
 }
 
 

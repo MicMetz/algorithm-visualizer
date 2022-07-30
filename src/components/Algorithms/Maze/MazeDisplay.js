@@ -3,7 +3,6 @@ import Board                                from './Board';
 import Navigation                           from '../../Page/partial/Navbar/Navigation';
 import './mazeDisplay.css';
 // import {useBinaryTreeCreation}                         from '../Algorithms/Maze/Generation/BinaryTreeCreation';
-import {Strategy}                           from '../../Strategy/Strategy';
 
 /*
 
@@ -83,102 +82,102 @@ export default function MazeDisplay() {
 
           <div className="display-bottom-panel" >
 
-          <div className = "control-group-two">
-            <h2 className = "control-header">Generate Maze</h2>
-            <div className = "maze-toggle-group">
-              <button
-                  onClick = {() => {
-                    if (mazeType === 'none') {
-                      setMazeType('binaryTree');
-                    }
-                  }}
-                  className = {`maze-toggle ${mazeType !== 'none' ? 'active' : undefined}`}
-              >
-                ON
-              </button>
+            <div className = "control-group-two">
+              <h2 className = "control-header">Generate Maze</h2>
+              <div className = "maze-toggle-group">
+                <button
+                    onClick = {() => {
+                      if (mazeType === 'none') {
+                        setMazeType('binaryTree');
+                      }
+                    }}
+                    className = {`maze-toggle ${mazeType !== 'none' ? 'active' : undefined}`}
+                >
+                  ON
+                </button>
+
+                <button
+                    onClick = {() => setMazeType('none')}
+                    className = {`maze-toggle ${mazeType === 'none' ? 'active' : undefined}`}
+                >
+                  OFF
+                </button>
+                <button className = "maze-toggle" onClick = {handleResetBoard}>
+                  Reset
+                </button>
+              </div>
 
               <button
-                  onClick = {() => setMazeType('none')}
-                  className = {`maze-toggle ${mazeType === 'none' ? 'active' : undefined}`}
+                  onClick = {() => setMazeType('binaryTree')}
+                  className = {mazeType === 'binaryTree' ? 'active' : undefined}
               >
-                OFF
+                Binary Tree
               </button>
-              <button className = "maze-toggle" onClick = {handleResetBoard}>
-                Reset
+              <button
+                  onClick = {() => setMazeType('recursiveBacktracking')}
+                  className = {mazeType === 'recursiveBacktracking' ? 'active' : undefined}
+              >
+                Recursive Backtracking
+              </button>
+              <button
+                  onClick = {() => setMazeType('growingTree')}
+                  className = {mazeType === 'growingTree' ? 'active' : undefined}
+              >
+                Growing Tree
+              </button>
+              <button
+                  onClick = {() => setMazeType('bfs')}
+                  className = {mazeType === 'bfs' ? 'active' : undefined}
+              >
+                Breath First Search
               </button>
             </div>
 
-            <button
-                onClick = {() => setMazeType('binaryTree')}
-                className = {mazeType === 'binaryTree' ? 'active' : undefined}
-            >
-              Binary Tree
-            </button>
-            <button
-                onClick = {() => setMazeType('recursiveBacktracking')}
-                className = {mazeType === 'recursiveBacktracking' ? 'active' : undefined}
-            >
-              Recursive Backtracking
-            </button>
-            <button
-                onClick = {() => setMazeType('growingTree')}
-                className = {mazeType === 'growingTree' ? 'active' : undefined}
-            >
-              Growing Tree
-            </button>
-            <button
-                onClick = {() => setMazeType('bfs')}
-                className = {mazeType === 'bfs' ? 'active' : undefined}
-            >
-              Breath First Search
-            </button>
-          </div>
-
-          <div className = "control-group-three">
-            <h2 className = "control-header">Solve Maze</h2>
-            {/* <button */}
-            {/*     onClick = {() => setSolving(true)} */}
-            {/*     className = {solving ? 'active' : undefined} */}
-            {/* > */}
-            {/*   Solving */}
-            {/* </button> */}
-            {/* <button */}
-            {/*     onClick = {() => setSolving(false)} */}
-            {/*     className = {!solving ? 'active' : undefined} */}
-            {/* > */}
-            {/*   Not Solving */}
-            {/* </button> */}
-            <button
-                onClick = {() => setAlgorithm('none')}
-                className = {algorithm === 'none' ? 'active' : undefined}
-            >
-              None
-            </button>
-            <button
-                onClick = {() => setAlgorithm('bfs')}
-                className = {algorithm === 'bfs' ? 'active' : undefined}
-            >
-              BFS
-            </button>
-            <button
-                onClick = {() => setAlgorithm('dfs')}
-                className = {algorithm === 'dfs' ? 'active' : undefined}
-            >
-              DFS
-            </button>
-            <button
-                onClick = {() => setAlgorithm('dijkstra')}
-                className = {algorithm === 'dijkstra' ? 'active' : undefined}
-            >
-              Dijkstra
-            </button>
-            <button
-                onClick = {() => setAlgorithm('aStar')}
-                className = {algorithm === 'aStar' ? 'active' : undefined}
-            >
-              A*
-            </button>
-          </div>
+            <div className = "control-group-three">
+              <h2 className = "control-header">Solve Maze</h2>
+              {/* <button */}
+              {/*     onClick = {() => setSolving(true)} */}
+              {/*     className = {solving ? 'active' : undefined} */}
+              {/* > */}
+              {/*   Solving */}
+              {/* </button> */}
+              {/* <button */}
+              {/*     onClick = {() => setSolving(false)} */}
+              {/*     className = {!solving ? 'active' : undefined} */}
+              {/* > */}
+              {/*   Not Solving */}
+              {/* </button> */}
+              <button
+                  onClick = {() => setAlgorithm('none')}
+                  className = {algorithm === 'none' ? 'active' : undefined}
+              >
+                None
+              </button>
+              <button
+                  onClick = {() => setAlgorithm('bfs')}
+                  className = {algorithm === 'bfs' ? 'active' : undefined}
+              >
+                BFS
+              </button>
+              <button
+                  onClick = {() => setAlgorithm('dfs')}
+                  className = {algorithm === 'dfs' ? 'active' : undefined}
+              >
+                DFS
+              </button>
+              <button
+                  onClick = {() => setAlgorithm('dijkstra')}
+                  className = {algorithm === 'dijkstra' ? 'active' : undefined}
+              >
+                Dijkstra
+              </button>
+              <button
+                  onClick = {() => setAlgorithm('aStar')}
+                  className = {algorithm === 'aStar' ? 'active' : undefined}
+              >
+                A*
+              </button>
+            </div>
 
           </div>
         </div>

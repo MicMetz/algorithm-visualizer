@@ -24,8 +24,8 @@ function AppRouter() {
           <Route exact path = "/dashboard"
                  element = {<MainSortingCanvas/>}/>
           <Route exact path = "/dashboard-two"
-                 element = {<MazeDisplay/>}/><
-          Route exact path = "/dashboard-three"
+                 element = {<MazeDisplay/>}/>
+          <Route exact path = "/dashboard-three"
                  element = {<DiceDisplay/>}/>
           <Route path = "/about"
                  element = {<AboutScreen/>}/>
