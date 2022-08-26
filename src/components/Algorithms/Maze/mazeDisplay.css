@@ -18,7 +18,7 @@
 	bottom:   0px;
 }
 
-.control-group-one, .control-group-two, .control-group-three {
+.control-group-one, .control-group-two, .control-group-three .control-group-selector {
 	z-index:    10;
 	margin:     auto;
 	background: rgba(114, 108, 108, 0.9);
@@ -33,6 +33,11 @@
 	position:     absolute;
 	top:          50px;
 	padding-left: 10px;
+}
+
+.control-group-selector {
+	display: block;
+	padding-top: 15px;
 }
 
 .control-group-two, .control-group-three {
@@ -76,12 +81,12 @@
 	width:         100%;
 }
 
-.control-group-one > button:hover {
+.control-group-one, .control-group-selector > button:hover {
 	background-color: #111;
 	color:            #fff;
 }
 
-.control-group-one > button {
+.control-group-one, .control-group-selector > button {
 	width:          100%;
 	height:         fit-content;
 	display:        block;
@@ -97,7 +102,7 @@
 
 }
 
-.control-group-one > button.active {
+.control-group-one, .control-group-selector > button.active {
 	font-weight:      bold;
 	background-color: #333;
 	color:            #ff0;

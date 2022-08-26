@@ -23,6 +23,7 @@ export default function MazeDisplay() {
   const [mazeType, setMazeType]                     = useState('none');
   const [algorithm, setAlgorithm]                   = useState('none');
   const [solving, setSolving]                       = useState(false);
+  const [selectorActive, setSelectorActive]         = useState(false);
   const [selectedPoint, setSelectedPoint]           = useState(null);
   const [selectedGoalPoint, setSelectedGoalPoint]   = useState(null);
   const [selectedStartPoint, setSelectedStartPoint] = useState(null);
@@ -78,9 +79,20 @@ export default function MazeDisplay() {
             <button className = "reset-button" onClick = {handleResetCamera}>
               View Reset
             </button>
-          </div>
 
-          <div className="display-bottom-panel" >
+            <div className = "control-group-selector">
+              <button
+                  onClick = {() => setSelectorActive(!selectorActive)}
+                  className = {selectorActive === true ? 'active' : undefined}
+              >
+                Selecting
+              < /button>
+
+            </div>
+          </div>
+          <div className = "display-bottom-panel">
+
+
 
             <div className = "control-group-two">
               <h2 className = "control-header">Generate Maze</h2>

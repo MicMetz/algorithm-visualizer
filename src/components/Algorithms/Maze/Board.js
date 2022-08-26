@@ -42,8 +42,8 @@ export const Board = ({board, solving, algorithm, layoutType, selectedPoint, onS
             board = {board}
             layoutType = {layoutType}
             mazeType = {mazeType}
-            solving={solving}
-            algorithm={algorithm}
+            solving = {solving}
+            algorithm = {algorithm}
             selectedPoint = {selectedPoint}
             onSelectPoint = {onSelectPoint}
         />

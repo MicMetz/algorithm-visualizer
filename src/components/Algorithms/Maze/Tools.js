@@ -93,6 +93,7 @@ export function shuffle(array) {
 
 
 export function _BoardReset(board) {
+  console.log('Board Reset');
   for (let i = 0; i < board.length; i++) {
     board[i].visited = false;
     board[i].type    = DEFAULT_TYPE;

@@ -51,7 +51,7 @@ export function useGenerateMazeHook({board, mazeType}) {
         RecursiveBacktrackCreation(board);
         break;
       case 'growingTree':
-        GrowingTreeCreation(board);
+        GrowingTreeCreation(board, );
         break;
       case 'bfs':
         BfsCreation(board);

@@ -24,7 +24,7 @@ export function GrowingTreeCreation(board, start, end) {
 
 
   const visited = new PriorityQueue();
-  const queue = new PriorityQueue();
+  const queue   = new PriorityQueue();
 
   while (queue.length > 0) {
     const cell = queue.dequeue();

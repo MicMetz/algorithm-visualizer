@@ -116,7 +116,7 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
 
   // @Test
   // board[100].type = GOAL_TYPE;
-  // board[1].type   = START_TYPE;
+  // board[1].type
 
 
   /* Builtin observer callback functions for the board state.
@@ -128,6 +128,7 @@ const Cells = ({board, layoutType, solving, algorithm, mazeType, selectedPoint, 
    * useLayoutHook() is a hook that calls the LayoutHook() function.
    * Generating a layout according to the selected layout shape.
    */
+
   useGenerateMazeHook({board, mazeType});
   useLayoutHook({board, layoutType});
 
