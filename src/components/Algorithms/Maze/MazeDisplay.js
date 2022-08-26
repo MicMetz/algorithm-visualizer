@@ -27,6 +27,8 @@ export default function MazeDisplay() {
   const [selectedPoint, setSelectedPoint]           = useState(null);
   const [selectedGoalPoint, setSelectedGoalPoint]   = useState(null);
   const [selectedStartPoint, setSelectedStartPoint] = useState(null);
+  const [selectorStartActive, toggleSelectorStart]  = useState(false);
+  const [selectorGoalActive, toggleSelectorGoal]    = useState(false);
 
 
   const boardRef = useRef(); // Mutable(Persistant) board reference object.
@@ -69,7 +71,7 @@ export default function MazeDisplay() {
           </div>
 
           <div className = "control-group-one">
-            <h2 className = "control-header">Display <br/> Strategy</h2>
+            <h2 className = "control-header">Setup <br/> Options</h2>
             <button
                 onClick = {() => setLayout('standard')}
                 className = {layoutType === 'standard' ? 'active' : undefined}
@@ -87,7 +89,48 @@ export default function MazeDisplay() {
               >
                 Selecting
               < /button>
+              {selectorActive && (
+                  <div className = "select-dropdown">
+                    <button
+                        onClick = {() => {
+                          toggleSelectorStart(false);
+                          toggleSelectorGoal(false);
+                          setSelectedPoint(null);
+                          setSelectedGoalPoint(null);
+                          setSelectedStartPoint(null);
+                          setSelectorActive(false);
+                        }}
+                    >
+                      Clear Selection
+                    </button>
 
+                    <button
+                        onClick = {() => {
+                          toggleSelectorStart(!selectorStartActive);
+                          toggleSelectorGoal(false);
+                          setSelectedPoint(null);
+                          setSelectedStartPoint(null);
+                        }}
+                        className = {selectorStartActive === true ? 'active' : undefined}
+
+                        {...(selectedPoint !== null && selectorStartActive ? setSelectedStartPoint(selectedPoint) : {})}
+                    >
+                      Select Start
+                    </button>
+                    <button
+                        onClick = {() => {
+                          toggleSelectorGoal(!selectorGoalActive);
+                          toggleSelectorStart(false);
+                          setSelectedPoint(null);
+                          setSelectedGoalPoint(null);
+                        }}
+                        className = {selectorGoalActive === true ? 'active' : undefined}
+                        {...(selectedPoint !== null && selectorGoalActive ? setSelectedGoalPoint(selectedPoint) : {})}
+                    >
+                      Select Goal
+                    </button>
+                  </div>
+              )}
             </div>
           </div>
           <div className = "display-bottom-panel">

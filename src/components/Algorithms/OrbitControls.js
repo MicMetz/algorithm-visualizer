@@ -19,8 +19,8 @@ const OrbitControls = ({board, selectedPoint, onSelectedPoint}, ref) => {
   //  Set up the camera on mount.
   useEffect(() => {
     // camera.position.set(0, -10, 50);  // Initial camera position
-    camera.position.set(0, 0, 50);
-    camera.lookAt(0, -10, 50);
+    camera.position.set(0, 0, 35);
+    camera.lookAt(0, -10, 0);
   }, [camera]);
 
   //  Set up the initial target.
@@ -54,8 +54,8 @@ const OrbitControls = ({board, selectedPoint, onSelectedPoint}, ref) => {
       // reset look-at (target) and camera position
       controls.current.target.set(0, 0, 0);
       // camera.position.set(0, 0, 80);
-      camera.position.set(0, 0, 50);
-      camera.lookAt(0, -10, 50);
+      camera.position.set(0, 0, 35);
+      camera.lookAt(0, -10, 0);
       // needed for trackball controls, reset the up vector
       camera.up.set(
           controls.current.up0.x,
